@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Персонаж</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+    }
+    .character {
+      position: relative;
+    }
+    .character img {
+      max-width: 300px;
+    }
+    .slot {
+      position: absolute;
+      background: rgba(255, 0, 0, 0.3);
+      border: 1px solid red;
+      cursor: pointer;
+    }
+    #head { top: 10px; left: 100px; width: 80px; height: 80px; }
+    #torso { top: 100px; left: 90px; width: 100px; height: 150px; }
+    #legs { top: 260px; left: 100px; width: 90px; height: 150px; }
+  </style>
+</head>
+<body>
+  <div class="character">
+    <img src="character.png" alt="Персонаж">
+    <div id="head" class="slot" onclick="selectSlot('Голова')"></div>
+    <div id="torso" class="slot" onclick="selectSlot('Торс')"></div>
+    <div id="legs" class="slot" onclick="selectSlot('Ноги')"></div>
+  </div>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    function selectSlot(slot) {
+      Telegram.WebApp.sendData(slot); // Отправляем слот в бота
+    }
+  </script>
+</body>
+</html>
